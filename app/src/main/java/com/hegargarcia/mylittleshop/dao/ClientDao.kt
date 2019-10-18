@@ -16,4 +16,7 @@ interface ClientDao {
 
     @Delete
     fun delete(client: Client)
+
+    @Query("SELECT * FROM Client")
+    fun getAll(): List<Client>
 }

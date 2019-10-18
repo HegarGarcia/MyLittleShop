@@ -6,7 +6,7 @@ import com.hegargarcia.mylittleshop.entity.User
 @Dao
 interface UserDao {
     @Insert
-    fun insert(user: User)
+    fun insert(user: User): Int
 
     @Query("SELECT * FROM User WHERE id == :id")
     fun getById(id: Int): User
@@ -16,4 +16,7 @@ interface UserDao {
 
     @Delete
     fun delete(user: User)
+
+    @Query("SELECT * FROM User WHERE email == :email AND password == :password")
+    fun login(email: String, password: String): User
 }
