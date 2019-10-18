@@ -1,4 +1,4 @@
-package com.hegargarcia.mylittleshop.models
+package com.hegargarcia.mylittleshop.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
