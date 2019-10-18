@@ -2,10 +2,12 @@ package com.hegargarcia.mylittleshop.database
 
 import android.content.Context
 import androidx.room.*
+import com.hegargarcia.mylittleshop.converter.DateTypeConverter
 import com.hegargarcia.mylittleshop.dao.*
 import com.hegargarcia.mylittleshop.entity.*
 
 @Database(entities = [User::class, Client::class, Product::class, Sell::class], version = 1)
+@TypeConverters(DateTypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun user(): UserDao
     abstract fun client(): ClientDao
@@ -13,7 +15,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract  fun sell(): SellDao
 
     companion object {
-        var INSTANCE: AppDatabase? = null
+        private var INSTANCE: AppDatabase? = null
 
         fun getDatabase(context: Context): AppDatabase? {
             if (INSTANCE == null) {
