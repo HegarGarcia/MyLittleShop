@@ -1,7 +1,8 @@
-package com.hegargarcia.mylittleshop
+package com.hegargarcia.mylittleshop.client
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.hegargarcia.mylittleshop.R
 
 class ClientListActivity : AppCompatActivity() {
 

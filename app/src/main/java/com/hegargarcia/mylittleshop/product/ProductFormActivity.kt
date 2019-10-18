@@ -1,7 +1,8 @@
-package com.hegargarcia.mylittleshop
+package com.hegargarcia.mylittleshop.product
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.hegargarcia.mylittleshop.R
 
 class ProductFormActivity : AppCompatActivity() {
 
