@@ -3,6 +3,7 @@ package com.hegargarcia.mylittleshop.entity
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(
     foreignKeys = [ForeignKey(
@@ -21,5 +22,6 @@ data class Sell(
     val product: String,
     val amount: Int,
     val total: Float,
-    val cost: String
-    )
+    val cost: Float,
+    val date: Date
+)
