@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">My Little Shop</string>
+    <string name="add_client">Añadir Cliente</string>
+    <string name="name">Nombre</string>
+    <string name="address">Direccion</string>
+    <string name="email">E-mail</string>
+    <string name="password">Contraseña</string>
+    <string name="save_button">Guardar</string>
+    <string name="cancel_button">Cancelar</string>
+    <string name="phone">Telefono</string>
+    <string name="username">Usuario</string>
+    <string name="sign_button">Registrarse</string>
 </resources>
