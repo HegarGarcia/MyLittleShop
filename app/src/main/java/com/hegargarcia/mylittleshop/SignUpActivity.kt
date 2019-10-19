@@ -22,6 +22,10 @@ class SignUpActivity : AppCompatActivity() {
         signUpButton.setOnClickListener{
             addUser()
         }
+
+        cancelButton.setOnClickListener{
+            finish()
+        }
     }
 
     private fun addUser(){
