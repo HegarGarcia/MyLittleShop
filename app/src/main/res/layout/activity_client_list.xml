@@ -7,22 +7,23 @@
     tools:context=".client.ClientListActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addClientButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
-        android:text="Button"
+        android:text="@string/add_client"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
+        android:id="@+id/clientListView"
         android:layout_width="404dp"
         android:layout_height="634dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/addClientButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
