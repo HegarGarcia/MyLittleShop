@@ -5,38 +5,34 @@ import android.os.Bundle
 import com.hegargarcia.mylittleshop.R
 import com.hegargarcia.mylittleshop.dao.ClientDao
 import com.hegargarcia.mylittleshop.database.AppDatabase
-import com.hegargarcia.mylittleshop.entity.Client
-import kotlinx.android.synthetic.main.activity_client_form.*
+import kotlinx.android.synthetic.main.activity_product_edit.*
 
-class ClientFormActivity : AppCompatActivity() {
+class ClientEditActivity : AppCompatActivity() {
 
     private var db: AppDatabase? = null
     private var clientDao: ClientDao? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_client_form)
+        setContentView(R.layout.activity_client_edit)
 
         db = AppDatabase?.getDatabase(this)
         clientDao = db?.client()
 
-        saveClientButton.setOnClickListener {
-            addClient()
+        updateButton.setOnClickListener{
+            editClient()
         }
 
         cancelButton.setOnClickListener{
-            finish()
+            deleteClient()
         }
     }
 
-    private fun addClient() {
+    private fun editClient(){
 
-        val client = Client(
-            name = namePrompt.text.toString(),
-            address = addressPrompt.text.toString(),
-            email = emailPrompt.text.toString(),
-            phone = phonePrompt.text.toString()
-        )
-        clientDao?.insert(client)
+    }
+
+    private fun deleteClient(){
+
     }
 }

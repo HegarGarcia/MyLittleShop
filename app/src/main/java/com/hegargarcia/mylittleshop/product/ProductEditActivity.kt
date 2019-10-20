@@ -1,34 +1,38 @@
-package com.hegargarcia.mylittleshop.sell
+package com.hegargarcia.mylittleshop.product
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.hegargarcia.mylittleshop.R
-import com.hegargarcia.mylittleshop.dao.SellDao
+import com.hegargarcia.mylittleshop.dao.ProductDao
 import com.hegargarcia.mylittleshop.database.AppDatabase
-import kotlinx.android.synthetic.main.activity_sell_form.*
+import kotlinx.android.synthetic.main.activity_product_edit.*
 
-class SellFormActivity : AppCompatActivity() {
+class ProductEditActivity : AppCompatActivity() {
 
     private var db: AppDatabase? = null
-    private var sellDao: SellDao? = null
+    private var productDao: ProductDao? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sell_form)
+        setContentView(R.layout.activity_product_edit)
 
         db = AppDatabase?.getDatabase(this)
-        sellDao = db?.sell()
+        productDao = db?.product()
 
         updateButton.setOnClickListener{
-            addSell()
+            editProduct()
         }
 
         cancelButton.setOnClickListener{
-            finish()
+            deleteProduct()
         }
     }
 
-    private fun addSell(){
+    private fun editProduct(){
+
+    }
+
+    private fun deleteProduct(){
 
     }
 }

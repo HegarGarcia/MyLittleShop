@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".sell.SellEditActivity"></activity>
+        <activity android:name=".client.ClientEditActivity" />
+        <activity android:name=".product.ProductEditActivity" />
         <activity android:name=".sell.SellFormActivity" />
         <activity android:name=".sell.SellListActivity" />
         <activity android:name=".product.ProductFormActivity" />
@@ -19,7 +21,6 @@
         <activity android:name=".client.ClientListActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainMenuActivity" />
-
         <activity android:name=".LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
