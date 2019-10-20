@@ -6,9 +6,9 @@ import com.hegargarcia.mylittleshop.entity.User
 @Dao
 interface UserDao {
     @Insert
-    fun insert(user: User): Int
+    fun insert(user: User): Long
 
-    @Query("SELECT * FROM User WHERE id == :id")
+    @Query("SELECT * FROM User WHERE id = :id")
     fun getById(id: Int): User
 
     @Update
@@ -17,6 +17,6 @@ interface UserDao {
     @Delete
     fun delete(user: User)
 
-    @Query("SELECT * FROM User WHERE email == :email AND password == :password")
-    fun login(email: String, password: String): User
+    @Query("SELECT * FROM User WHERE username = :username AND password = :password")
+    fun login(username: String, password: String): User
 }

@@ -80,12 +80,12 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:background="@drawable/botonredondeado"
+            android:background="@drawable/bg_rounded"
             android:bottomLeftRadius="10dp"
             android:bottomRightRadius="10dp"
             android:text="ENTRAR"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#ffff"
+            android:textColor="@android:color/black"
             android:topLeftRadius="10dp"
             android:topRightRadius="10dp" />
 
@@ -96,12 +96,12 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
-            android:background="@drawable/botonredondeado"
+            android:background="@drawable/bg_rounded"
             android:bottomLeftRadius="10dp"
             android:bottomRightRadius="10dp"
             android:text="REGISTRATE"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#ffff"
+            android:textColor="@android:color/black"
             android:topLeftRadius="10dp"
             android:topRightRadius="10dp" />
 
@@ -111,7 +111,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:indeterminateOnly="true"
-            android:keepScreenOn="true"/>
+            android:keepScreenOn="true"
+            android:visibility="gone" />
 
     </LinearLayout>
 

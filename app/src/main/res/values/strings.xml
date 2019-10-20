@@ -22,4 +22,6 @@
     <string name="client_election">Elige un cliente</string>
     <string name="product_election">Elige un producto</string>
     <string name="amount_election">Elige una cantidad</string>
+
+    <string name="user_does_not_exists">No hay un usuario registrado</string>
 </resources>
