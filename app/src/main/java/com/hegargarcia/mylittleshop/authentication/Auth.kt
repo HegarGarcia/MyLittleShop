@@ -41,7 +41,7 @@ class Auth(context: Context) {
         return user
     }
 
-    fun signup(user: User, remember: Boolean): Int {
+    fun signUp(user: User): Int {
         return userDao?.insert(user)!!
     }
 
