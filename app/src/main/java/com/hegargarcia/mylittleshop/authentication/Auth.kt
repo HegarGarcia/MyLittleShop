@@ -2,6 +2,7 @@ package com.hegargarcia.mylittleshop.authentication
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import com.hegargarcia.mylittleshop.dao.UserDao
 import com.hegargarcia.mylittleshop.database.AppDatabase
 import com.hegargarcia.mylittleshop.entity.User
@@ -30,18 +31,20 @@ class Auth(context: Context) {
     val getCurrentUser: User
         get() = userDao?.getById(getCurrentUserId)!!
 
-    fun logIn(email: String, password: String, remember: Boolean): User? {
-        val user = userDao?.login(email, password)
-        if (remember) {
+    fun logIn(username: String, password: String, remember: Boolean): User? {
+        val user = userDao?.login(username, password)
+
+        if (user!= null && remember) {
             preferences?.edit()?.apply {
-                putInt("user.id", user?.id!!)
+                putInt("user.id", user.id!!)
                 apply()
             }
         }
+
         return user
     }
 
-    fun signup(user: User, remember: Boolean): Int {
+    fun signUp(user: User): Long {
         return userDao?.insert(user)!!
     }
 

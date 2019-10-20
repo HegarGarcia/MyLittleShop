@@ -18,7 +18,7 @@ class ClientFormActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_client_form)
 
-        db = AppDatabase?.getDatabase(this)
+        db = AppDatabase.getDatabase(this)
         clientDao = db?.client()
 
         saveClientButton.setOnClickListener {
