@@ -1,38 +1,38 @@
-package com.hegargarcia.mylittleshop.client
+package com.hegargarcia.mylittleshop.product
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.hegargarcia.mylittleshop.R
-import com.hegargarcia.mylittleshop.dao.ClientDao
+import com.hegargarcia.mylittleshop.dao.ProductDao
 import com.hegargarcia.mylittleshop.database.AppDatabase
 import kotlinx.android.synthetic.main.activity_product_edit.*
 
-class ClientEditActivity : AppCompatActivity() {
+class ProductEditActivity : AppCompatActivity() {
 
     private var db: AppDatabase? = null
-    private var clientDao: ClientDao? = null
+    private var productDao: ProductDao? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_client_edit)
+        setContentView(R.layout.activity_product_edit)
 
         db = AppDatabase?.getDatabase(this)
-        clientDao = db?.client()
+        productDao = db?.product()
 
         updateButton.setOnClickListener{
-            editClient()
+            editProduct()
         }
 
         cancelButton.setOnClickListener{
-            deleteClient()
+            deleteProduct()
         }
     }
 
-    private fun editClient(){
+    private fun editProduct(){
 
     }
 
-    private fun deleteClient(){
+    private fun deleteProduct(){
 
     }
 }

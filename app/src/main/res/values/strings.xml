@@ -16,5 +16,10 @@
     <string name="photoURL">Imagen</string>
     <string name="save_button">Guardar</string>
     <string name="cancel_button">Cancelar</string>
+    <string name="delete_button">Eliminar</string>
+    <string name="update_button">Actualizar</string>
     <string name="sign_button">Registrarse</string>
+    <string name="client_election">Elige un cliente</string>
+    <string name="product_election">Elige un producto</string>
+    <string name="amount_election">Elige una cantidad</string>
 </resources>
