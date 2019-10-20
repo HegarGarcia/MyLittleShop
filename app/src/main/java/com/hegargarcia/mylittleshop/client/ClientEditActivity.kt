@@ -16,7 +16,7 @@ class ClientEditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_client_edit)
 
-        db = AppDatabase?.getDatabase(this)
+        db = AppDatabase.getDatabase(this)
         clientDao = db?.client()
 
         updateButton.setOnClickListener{

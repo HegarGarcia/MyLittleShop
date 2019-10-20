@@ -16,7 +16,7 @@ class ProductEditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_edit)
 
-        db = AppDatabase?.getDatabase(this)
+        db = AppDatabase.getDatabase(this)
         productDao = db?.product()
 
         updateButton.setOnClickListener{

@@ -16,7 +16,7 @@ class SellFormActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sell_form)
 
-        db = AppDatabase?.getDatabase(this)
+        db = AppDatabase.getDatabase(this)
         sellDao = db?.sell()
 
         updateButton.setOnClickListener{

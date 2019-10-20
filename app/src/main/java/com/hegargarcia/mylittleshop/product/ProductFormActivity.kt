@@ -17,7 +17,7 @@ class ProductFormActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_form)
 
-        db = AppDatabase?.getDatabase(this)
+        db = AppDatabase.getDatabase(this)
         productDao = db?.product()
 
         updateButton.setOnClickListener{
