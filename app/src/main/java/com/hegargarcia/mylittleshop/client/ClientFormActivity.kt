@@ -2,6 +2,7 @@ package com.hegargarcia.mylittleshop.client
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.hegargarcia.mylittleshop.R
 import com.hegargarcia.mylittleshop.dao.ClientDao
 import com.hegargarcia.mylittleshop.database.AppDatabase
@@ -38,5 +39,7 @@ class ClientFormActivity : AppCompatActivity() {
             phone = phonePrompt.text.toString()
         )
         clientDao?.insert(client)
+        Toast.makeText(this,"Se ha añadido el cliente", Toast.LENGTH_LONG).show()
+        finish()
     }
 }

@@ -2,6 +2,7 @@ package com.hegargarcia.mylittleshop
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.hegargarcia.mylittleshop.dao.UserDao
 import com.hegargarcia.mylittleshop.database.AppDatabase
 import com.hegargarcia.mylittleshop.entity.User
@@ -35,7 +36,9 @@ class SignUpActivity : AppCompatActivity() {
             email = emailPrompt.text.toString(),
             storeName = "My Little Shop xd"
         )
-
         userDao?.insert(user)
+
+        Toast.makeText(this,"Te has registrado con exito",Toast.LENGTH_LONG).show()
+        finish()
     }
 }

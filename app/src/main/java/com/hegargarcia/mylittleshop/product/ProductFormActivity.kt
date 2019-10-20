@@ -2,6 +2,7 @@ package com.hegargarcia.mylittleshop.product
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.hegargarcia.mylittleshop.R
 import com.hegargarcia.mylittleshop.dao.ProductDao
 import com.hegargarcia.mylittleshop.database.AppDatabase
@@ -39,5 +40,8 @@ class ProductFormActivity : AppCompatActivity() {
             photoUrl = photoPrompt.text.toString()
         )
         productDao?.insert(product)
+
+        Toast.makeText(this,"Se ha añadido el producto", Toast.LENGTH_LONG).show()
+        finish()
     }
 }
