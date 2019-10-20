@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
+apply plugin: 'kotlin-kapt'
+
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -38,7 +40,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.android.volley:dc-volley:1.1.0'
+
+    kapt 'androidx.room:room-compiler:2.2.0'
     implementation 'androidx.room:room-compiler:2.2.0'
     implementation 'androidx.room:room-runtime:2.2.0'
+
     implementation 'com.google.code.gson:gson:2.8.6'
 }
