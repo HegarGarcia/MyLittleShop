@@ -19,4 +19,6 @@
     <string name="product_election">Elige un producto</string>
 
     <string name="user_does_not_exists">No hay un usuario registrado</string>
+
+    <string name="money">$%d</string>
 </resources>

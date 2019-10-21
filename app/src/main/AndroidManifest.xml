@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".statistics.StatisticsActivity"></activity>
         <activity android:name=".sell.SellFormActivity" />
         <activity android:name=".sell.SellListActivity" />
         <activity android:name=".product.ProductFormActivity" />
