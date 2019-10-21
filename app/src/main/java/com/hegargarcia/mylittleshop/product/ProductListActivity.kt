@@ -1,9 +1,9 @@
 package com.hegargarcia.mylittleshop.product
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 import com.hegargarcia.mylittleshop.R
 import com.hegargarcia.mylittleshop.database.AppDatabase
 import com.hegargarcia.mylittleshop.entity.Product
@@ -50,7 +50,7 @@ class ProductListActivity : AppCompatActivity() {
         }
 
         val productsAdapter =
-            ArrayAdapter<Product>(this, android.R.layout.simple_list_item_1, productList!!)
+            ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, productList?.map { "${it.name} -$${it.price}" }!!)
         productListView.adapter = productsAdapter
     }
 }

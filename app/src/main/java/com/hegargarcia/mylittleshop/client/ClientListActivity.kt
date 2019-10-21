@@ -51,7 +51,11 @@ class ClientListActivity : AppCompatActivity() {
         }
 
         val clientsAdapter =
-            ArrayAdapter<Client>(this, android.R.layout.simple_list_item_1, clientList!!)
+            ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                clientList?.map { "${it.name} - ${it.phone}" }!!
+            )
         clientListView.adapter = clientsAdapter
     }
 }

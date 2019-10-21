@@ -2,6 +2,7 @@ package com.hegargarcia.mylittleshop
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.hegargarcia.mylittleshop.authentication.Auth
@@ -36,6 +37,8 @@ class LogInActivity : AppCompatActivity() {
     }
 
     private fun logIn() {
+        progressBar.visibility = View.VISIBLE
+
         val user = auth?.logIn(
             username = userNamePrompt.text.toString(),
             password = passwordPrompt.text.toString(),
@@ -48,5 +51,7 @@ class LogInActivity : AppCompatActivity() {
             val intent = Intent(this, MainMenuActivity::class.java)
             startActivity(intent)
         }
+
+        progressBar.visibility = View.GONE
     }
 }
