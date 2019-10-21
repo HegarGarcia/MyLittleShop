@@ -1,8 +1,8 @@
 package com.hegargarcia.mylittleshop.client
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.hegargarcia.mylittleshop.R
 import com.hegargarcia.mylittleshop.dao.ClientDao
 import com.hegargarcia.mylittleshop.database.AppDatabase
@@ -11,35 +11,67 @@ import kotlinx.android.synthetic.main.activity_client_form.*
 
 class ClientFormActivity : AppCompatActivity() {
 
-    private var db: AppDatabase? = null
     private var clientDao: ClientDao? = null
+    private var client: Client? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_client_form)
 
-        db = AppDatabase.getDatabase(this)
-        clientDao = db?.client()
+        clientDao = AppDatabase.getDatabase(this).let {
+            it?.client()
+        }
+
+        val clientId = intent.getIntExtra("client.id", -1)
+
+        if (clientId != -1) {
+            client = clientDao?.getById(clientId)!!
+            namePrompt.setText(client?.name)
+            addressPrompt.setText(client?.address)
+            emailPrompt.setText(client?.email)
+            phonePrompt.setText(client?.phone)
+            deleteButton.visibility = View.VISIBLE
+        }
 
         saveClientButton.setOnClickListener {
             addClient()
         }
 
-        cancelButton.setOnClickListener{
+        cancelButton.setOnClickListener {
             finish()
+        }
+
+        deleteButton.setOnClickListener {
+            deleteClient()
         }
     }
 
     private fun addClient() {
+        if (client?.id != null) {
+            client.apply {
+                this?.name = namePrompt.text.toString()
+                this?.address = addressPrompt.text.toString()
+                this?.email = emailPrompt.text.toString()
+                this?.phone = phonePrompt.text.toString()
+            }
 
-        val client = Client(
-            name = namePrompt.text.toString(),
-            address = addressPrompt.text.toString(),
-            email = emailPrompt.text.toString(),
-            phone = phonePrompt.text.toString()
-        )
-        clientDao?.insert(client)
-        Toast.makeText(this,"Se ha añadido el cliente", Toast.LENGTH_LONG).show()
+            clientDao?.update(client!!)
+        } else {
+            client = Client(
+                name = namePrompt.text.toString(),
+                address = addressPrompt.text.toString(),
+                email = emailPrompt.text.toString(),
+                phone = phonePrompt.text.toString()
+            )
+
+            clientDao?.insert(client!!)
+        }
+
+        if (client != null) finish()
+    }
+
+    private fun deleteClient() {
+        clientDao?.delete(client!!)
         finish()
     }
 }
