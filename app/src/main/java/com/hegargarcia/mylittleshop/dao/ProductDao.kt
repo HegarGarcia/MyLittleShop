@@ -14,8 +14,8 @@ interface ProductDao {
     @Update
     fun update(product: Product)
 
-    @Query("DELETE FROM Product WHERE id == :id")
-    fun deleteById(id: Int)
+    @Delete
+    fun delete(client: Product)
 
     @Query("SELECT * FROM Product")
     fun getAll(): List<Product>
