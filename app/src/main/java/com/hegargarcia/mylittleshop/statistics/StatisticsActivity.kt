@@ -69,5 +69,9 @@ class StatisticsActivity : AppCompatActivity() {
                 }?.sum()
             )
         }
+
+        toolbar_statistics.setNavigationOnClickListener {
+            finish()
+        }
     }
 }
