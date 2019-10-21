@@ -27,9 +27,13 @@ class SellListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sell_list)
         showSellOnListView()
 
+        toolbar_sell_list.setNavigationOnClickListener {
+            finish()
+        }
+
         addSellButton.setOnClickListener{
-            val intento = Intent(this, SellFormActivity::class.java)
-            startActivityForResult(intento, FORM_ACTIVITY_CODE)
+            val intent = Intent(this, SellFormActivity::class.java)
+            startActivityForResult(intent, FORM_ACTIVITY_CODE)
         }
 
         sellListView.setOnItemClickListener { _, _, position, _ ->

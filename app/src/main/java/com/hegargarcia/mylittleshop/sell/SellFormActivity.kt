@@ -41,7 +41,7 @@ class SellFormActivity : AppCompatActivity() {
             deleteSell()
         }
 
-        cancelButton.setOnClickListener {
+        toolbar_sell_form.setNavigationOnClickListener {
             finish()
         }
     }

@@ -31,7 +31,7 @@ class SignUpActivity : AppCompatActivity() {
             username = userPrompt.text.toString(),
             password = passwordPrompt.text.toString(),
             email = emailPrompt.text.toString(),
-            storeName = "My Little Shop xd"
+            storeName = storeNamePrompt.text.toString()
         )
 
         Toast.makeText(this,"Te has registrado con exito",Toast.LENGTH_LONG).show()

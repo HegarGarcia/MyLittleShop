@@ -10,9 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".sell.SellEditActivity"></activity>
-        <activity android:name=".client.ClientEditActivity" />
-        <activity android:name=".product.ProductEditActivity" />
+
         <activity android:name=".sell.SellFormActivity" />
         <activity android:name=".sell.SellListActivity" />
         <activity android:name=".product.ProductFormActivity" />

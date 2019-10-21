@@ -39,7 +39,7 @@ class ProductFormActivity : AppCompatActivity() {
             addProduct()
         }
 
-        cancelButton.setOnClickListener {
+        toolbar_product_form.setNavigationOnClickListener {
             finish()
         }
 
