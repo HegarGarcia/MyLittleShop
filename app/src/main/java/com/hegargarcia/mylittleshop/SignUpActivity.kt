@@ -2,9 +2,8 @@ package com.hegargarcia.mylittleshop
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.hegargarcia.mylittleshop.authentication.Auth
-import com.hegargarcia.mylittleshop.dao.UserDao
-import com.hegargarcia.mylittleshop.database.AppDatabase
 import com.hegargarcia.mylittleshop.entity.User
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
@@ -34,6 +33,8 @@ class SignUpActivity : AppCompatActivity() {
             email = emailPrompt.text.toString(),
             storeName = "My Little Shop xd"
         )
+
+        Toast.makeText(this,"Te has registrado con exito",Toast.LENGTH_LONG).show()
 
         auth?.signUp(user)
         finish()
