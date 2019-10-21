@@ -20,7 +20,7 @@ class ProductFormActivity : AppCompatActivity() {
         db = AppDatabase.getDatabase(this)
         productDao = db?.product()
 
-        updateButton.setOnClickListener{
+        addButton.setOnClickListener{
             addProduct()
         }
 

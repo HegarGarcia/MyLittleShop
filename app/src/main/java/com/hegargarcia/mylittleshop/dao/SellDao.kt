@@ -24,7 +24,7 @@ interface SellDao {
     @Query("SELECT * FROM Sell WHERE date BETWEEN :from and :to")
     fun findSellsBetweenDates(from: Date, to: Date): List<Sell>
 
-    @Query(
+    /*@Query(
         """
         SELECT *, Product.description as productDescription, Client.name as clientName FROM Sell
         INNER JOIN Product
@@ -34,5 +34,5 @@ interface SellDao {
         WHERE productDescription LIKE :searchString OR clientName LIKE :searchString
         """
     )
-    fun search(searchString: String): List<Sell>
+    fun search(searchString: String): List<Sell>*/
 }

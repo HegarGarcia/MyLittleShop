@@ -19,7 +19,7 @@ class ClientEditActivity : AppCompatActivity() {
         db = AppDatabase.getDatabase(this)
         clientDao = db?.client()
 
-        updateButton.setOnClickListener{
+        addButton.setOnClickListener{
             editClient()
         }
 

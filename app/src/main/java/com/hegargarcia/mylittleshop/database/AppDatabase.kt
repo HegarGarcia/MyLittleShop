@@ -15,7 +15,11 @@ import com.hegargarcia.mylittleshop.entity.Product
 import com.hegargarcia.mylittleshop.entity.Sell
 import com.hegargarcia.mylittleshop.entity.User
 
-@Database(entities = [User::class, Client::class, Product::class, Sell::class], version = 1)
+@Database(
+    entities = [User::class, Client::class, Product::class, Sell::class],
+    version = 3,
+    exportSchema = false
+)
 @TypeConverters(DateTypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun user(): UserDao
@@ -33,7 +37,7 @@ abstract class AppDatabase : RoomDatabase() {
                         context.applicationContext,
                         AppDatabase::class.java,
                         "MyLittleStore"
-                    ).allowMainThreadQueries().build()
+                    ).allowMainThreadQueries().fallbackToDestructiveMigration().build()
                 }
             }
 

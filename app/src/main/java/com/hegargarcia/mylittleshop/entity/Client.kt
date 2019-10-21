@@ -1,13 +1,12 @@
 package com.hegargarcia.mylittleshop.entity
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(indices = [Index("id")])
 data class Client(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int? = null,
+    @PrimaryKey(autoGenerate = true) val id: Int? = null,
     var name: String,
     var address: String,
     var phone: String,

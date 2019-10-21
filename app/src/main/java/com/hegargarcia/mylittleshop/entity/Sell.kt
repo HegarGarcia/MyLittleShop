@@ -1,13 +1,10 @@
 package com.hegargarcia.mylittleshop.entity
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
+import androidx.room.*
 import java.util.*
 
 @Entity(
-    indices = [],
+    indices = [Index("client"), Index("product")],
     foreignKeys = [ForeignKey(
         entity = Client::class,
         parentColumns = ["id"],
@@ -19,14 +16,11 @@ import java.util.*
     )]
 )
 data class Sell(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int? = null,
-    @ColumnInfo(index = true)
+    @PrimaryKey(autoGenerate = true) val id: Int? = null,
     val client: String,
-    @ColumnInfo(index = true)
     val product: String,
-    val amount: Int,
-    val total: Float,
-    val cost: Float,
-    val date: Date
+    var amount: Int,
+    var total: Float,
+    var cost: Float,
+    var date: Date
 )
