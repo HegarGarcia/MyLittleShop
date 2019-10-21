@@ -31,6 +31,8 @@ class ClientFormActivity : AppCompatActivity() {
             emailPrompt.setText(client?.email)
             phonePrompt.setText(client?.phone)
             deleteButton.visibility = View.VISIBLE
+        } else {
+            deleteButton.visibility = View.GONE
         }
 
         saveClientButton.setOnClickListener {

@@ -27,8 +27,8 @@ class Auth(context: Context) {
     val isUserLoggedIn: Boolean
         get() = getCurrentUserId != -1
 
-    val getCurrentUser: User
-        get() = userDao?.getById(getCurrentUserId)!!
+    val getCurrentUser: User?
+        get() = userDao?.getById(getCurrentUserId)
 
     fun logIn(username: String, password: String, remember: Boolean): User? {
         val user = userDao?.login(username, password)

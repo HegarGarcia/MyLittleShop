@@ -1,8 +1,8 @@
 package com.hegargarcia.mylittleshop.product
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.hegargarcia.mylittleshop.R
 import com.hegargarcia.mylittleshop.dao.ProductDao
 import com.hegargarcia.mylittleshop.database.AppDatabase
@@ -33,6 +33,8 @@ class ProductFormActivity : AppCompatActivity() {
             costPrompt.setText(product?.cost.toString())
             photoPrompt.setText(product?.photoUrl)
             deleteButton.visibility = View.VISIBLE
+        } else {
+            deleteButton.visibility = View.GONE
         }
 
         addButton.setOnClickListener{
