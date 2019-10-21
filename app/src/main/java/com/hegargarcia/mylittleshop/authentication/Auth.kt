@@ -2,7 +2,6 @@ package com.hegargarcia.mylittleshop.authentication
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
 import com.hegargarcia.mylittleshop.dao.UserDao
 import com.hegargarcia.mylittleshop.database.AppDatabase
 import com.hegargarcia.mylittleshop.entity.User
@@ -48,10 +47,10 @@ class Auth(context: Context) {
         return userDao?.insert(user)!!
     }
 
-    fun signOut() {
+    /*fun signOut() {
         preferences?.edit()?.apply {
             remove("user.id")
             apply()
         }
-    }
+    }*/
 }

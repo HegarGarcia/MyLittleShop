@@ -55,7 +55,6 @@
             android:text="Ventas" />
 
         <Button
-            android:id="@+id/botonEstadisticas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="32dp"

@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">My Little Shop</string>
-    <string name="add_client">Añadir Cliente</string>
-    <string name="add_product">Añadir Producto</string>
-    <string name="add_sell">Añadir Venta</string>
     <string name="name">Nombre</string>
     <string name="address">Direccion</string>
     <string name="email">E-mail</string>
@@ -17,11 +14,9 @@
     <string name="save_button">Guardar</string>
     <string name="cancel_button">Cancelar</string>
     <string name="delete_button">Eliminar</string>
-    <string name="update_button">Actualizar</string>
     <string name="sign_button">Registrarse</string>
     <string name="client_election">Elige un cliente</string>
     <string name="product_election">Elige un producto</string>
-    <string name="amount_election">Elige una cantidad</string>
 
     <string name="user_does_not_exists">No hay un usuario registrado</string>
 </resources>
