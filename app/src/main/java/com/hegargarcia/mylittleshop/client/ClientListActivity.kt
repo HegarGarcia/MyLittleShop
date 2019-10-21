@@ -27,6 +27,10 @@ class ClientListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_client_list)
         showClientsOnListView()
 
+        toolbar_client_list.setNavigationOnClickListener {
+            finish()
+        }
+
         addButton.setOnClickListener {
             val intent = Intent(this, ClientFormActivity::class.java)
             startActivityForResult(intent, FORM_ACTIVITY_CODE)

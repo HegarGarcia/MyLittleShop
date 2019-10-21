@@ -37,7 +37,7 @@ class ClientFormActivity : AppCompatActivity() {
             addClient()
         }
 
-        cancelButton.setOnClickListener {
+        toolbar_client_form.setNavigationOnClickListener {
             finish()
         }
 

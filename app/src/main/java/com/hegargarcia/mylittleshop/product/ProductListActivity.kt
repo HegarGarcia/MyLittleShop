@@ -27,9 +27,13 @@ class ProductListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_product_list)
         showProductOnListView()
 
+        toolbar_product_list.setNavigationOnClickListener {
+            finish()
+        }
+
         addProductButton.setOnClickListener{
-            val intento = Intent(this, ProductFormActivity::class.java)
-            startActivityForResult(intento, FORM_ACTIVITY_CODE)
+            val intent = Intent(this, ProductFormActivity::class.java)
+            startActivityForResult(intent, FORM_ACTIVITY_CODE)
         }
 
         productListView.setOnItemClickListener { _, _, position, _ ->

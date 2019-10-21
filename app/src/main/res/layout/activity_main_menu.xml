@@ -6,56 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".MainMenuActivity">
 
-    <Button
-        android:id="@+id/botonCliente"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginBottom="52dp"
-        android:text="Clientes"
-        app:layout_constraintBottom_toTopOf="@+id/botonInventario"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_main_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/app_name"
+        app:titleTextColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/botonInventario"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginBottom="47dp"
-        android:text="Inventario"
-        app:layout_constraintBottom_toTopOf="@+id/botonVentas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonCliente" />
-
-    <Button
-        android:id="@+id/botonVentas"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginBottom="52dp"
-        android:text="Ventas"
-        app:layout_constraintBottom_toTopOf="@+id/botonEstadisticas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonInventario" />
-
-    <Button
-        android:id="@+id/botonEstadisticas"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginBottom="233dp"
-        android:text="Estadisticas"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonVentas" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_main_menu">
+
+        <Button
+            android:id="@+id/botonInventario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="32dp"
+            android:text="Inventario" />
+
+        <Button
+            android:id="@+id/botonCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="32dp"
+            android:text="Clientes" />
+
+        <Button
+            android:id="@+id/botonVentas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="32dp"
+            android:text="Ventas" />
+
+        <Button
+            android:id="@+id/botonEstadisticas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="32dp"
+            android:text="Estadisticas" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
