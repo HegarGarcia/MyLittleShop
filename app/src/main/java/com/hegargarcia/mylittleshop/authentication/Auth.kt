@@ -47,10 +47,10 @@ class Auth(context: Context) {
         return userDao?.insert(user)!!
     }
 
-    /*fun signOut() {
+    fun signOut() {
         preferences?.edit()?.apply {
             remove("user.id")
             apply()
         }
-    }*/
+    }
 }

@@ -55,10 +55,18 @@
             android:text="Ventas" />
 
         <Button
+            android:id="@+id/statisticsButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="32dp"
             android:text="Estadisticas" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="32dp"
+            android:text="Salir" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

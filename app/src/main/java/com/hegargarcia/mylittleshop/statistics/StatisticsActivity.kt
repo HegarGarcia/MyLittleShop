@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_statictics.*
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class StatisticsActivity : AppCompatActivity() {
@@ -22,8 +23,8 @@ class StatisticsActivity : AppCompatActivity() {
         sellDao = AppDatabase.getDatabase(this)?.sell()
 
         val today = LocalDateTime.now()
-        fromPrompt.setText(today.toString())
-        toPrompt.setText(today.toString())
+        fromPrompt.setText(today.format(DateTimeFormatter.ISO_DATE))
+        toPrompt.setText(today.format(DateTimeFormatter.ISO_DATE))
 
         dailyResultLabel.text = getString(
             R.string.money, sellDao?.findSellsBetweenDates(

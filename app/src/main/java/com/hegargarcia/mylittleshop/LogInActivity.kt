@@ -12,12 +12,8 @@ class LogInActivity : AppCompatActivity() {
 
     private var auth: Auth? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_log_in)
-
-        auth = Auth(this)
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
         if (auth?.isUserLoggedIn!!) {
             auth?.getCurrentUser?.also {
                 userNamePrompt.setText(it.username)
@@ -25,6 +21,13 @@ class LogInActivity : AppCompatActivity() {
                 rememberCheckBox.isChecked = true
             }
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_log_in)
+
+        auth = Auth(this)
 
         logInButton.setOnClickListener {
             logIn()
@@ -32,6 +35,11 @@ class LogInActivity : AppCompatActivity() {
 
         signUpButton.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+
+        if (auth?.isUserLoggedIn!!) {
+            val intent = Intent(this, MainMenuActivity::class.java)
             startActivity(intent)
         }
     }
@@ -45,9 +53,16 @@ class LogInActivity : AppCompatActivity() {
             remember = rememberCheckBox.isChecked
         )
 
+        userNamePrompt.clearFocus()
+        passwordPrompt.clearFocus()
+        rememberCheckBox.isChecked = false
+
         if (user == null) {
             Toast.makeText(this, R.string.user_does_not_exists, Toast.LENGTH_LONG).show()
         } else {
+            userNamePrompt.text.clear()
+            passwordPrompt.text.clear()
+
             val intent = Intent(this, MainMenuActivity::class.java)
             startActivity(intent)
         }
