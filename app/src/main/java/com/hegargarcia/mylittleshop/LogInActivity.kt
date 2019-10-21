@@ -18,9 +18,9 @@ class LogInActivity : AppCompatActivity() {
         auth = Auth(this)
 
         if (auth?.isUserLoggedIn!!) {
-            auth?.getCurrentUser.also {
-                userNamePrompt.setText(it?.username)
-                passwordPrompt.setText((it?.password))
+            auth?.getCurrentUser?.also {
+                userNamePrompt.setText(it.username)
+                passwordPrompt.setText((it.password))
                 rememberCheckBox.isChecked = true
             }
         }
