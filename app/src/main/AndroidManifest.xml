@@ -4,19 +4,21 @@
     package="com.hegargarcia.mylittleshop">
 
     <application
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
-        <activity android:name=".SellFormActivity" />
-        <activity android:name=".ProductFormActivity" />
-        <activity android:name=".ClientFormActivity" />
+        <activity android:name=".statistics.StatisticsActivity"></activity>
+        <activity android:name=".sell.SellFormActivity" />
+        <activity android:name=".sell.SellListActivity" />
+        <activity android:name=".product.ProductFormActivity" />
+        <activity android:name=".product.ProductListActivity" />
+        <activity android:name=".client.ClientFormActivity" />
+        <activity android:name=".client.ClientListActivity" />
         <activity android:name=".SignUpActivity" />
-
+        <activity android:name=".MainMenuActivity" />
         <activity android:name=".LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
