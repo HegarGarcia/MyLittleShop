@@ -27,9 +27,10 @@ class ProductListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_list)
+        storeName = Auth(this).getCurrentUser?.storeName
         showProductOnListView()
 
-        storeName = Auth(this).getCurrentUser?.storeName
+
 
         toolbar_product_list.setNavigationOnClickListener {
             finish()

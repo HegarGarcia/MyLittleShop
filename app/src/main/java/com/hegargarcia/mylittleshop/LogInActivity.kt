@@ -26,6 +26,19 @@ class LogInActivity : AppCompatActivity() {
                 rememberCheckBox.isChecked = true
             }
         }
+
+        storeNameList = AppDatabase.getDatabase(this).let { it?.user()?.getStoreNames() }
+
+        val adapter =
+            storeNameList?.let {
+                ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,
+                    it
+                ).apply {
+                    setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                }
+            }
+
+        storeNameSpinner.adapter = adapter
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

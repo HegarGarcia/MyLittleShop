@@ -57,15 +57,17 @@ class StatisticsActivity : AppCompatActivity() {
             }?.sum()
         )
 
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+
         calculateButton.setOnClickListener {
-            val from = LocalDateTime.parse(fromPrompt.text)
-            val to = LocalDateTime.parse(toPrompt.text)
+            val from = LocalDateTime.parse("${fromPrompt.text} 00:01", formatter)
+            val to = LocalDateTime.parse("${toPrompt.text} 23:59", formatter)
 
             customResultLabel.text = getString(
                 R.string.money,
                 sellDao?.findSellsBetweenDates(
-                    from,
                     to,
+                    from,
                     storeName!!
                 )?.map {
                     it.total - it.cost

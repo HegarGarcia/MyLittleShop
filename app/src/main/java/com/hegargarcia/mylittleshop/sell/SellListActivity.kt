@@ -27,9 +27,10 @@ class SellListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sell_list)
+        storeName = Auth(this).getCurrentUser?.storeName
         showSellOnListView()
 
-        storeName = Auth(this).getCurrentUser?.storeName
+
 
         toolbar_sell_list.setNavigationOnClickListener {
             finish()
