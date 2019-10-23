@@ -7,6 +7,7 @@ import com.hegargarcia.mylittleshop.R
 import com.hegargarcia.mylittleshop.dao.ProductDao
 import com.hegargarcia.mylittleshop.database.AppDatabase
 import com.hegargarcia.mylittleshop.entity.Product
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_form.*
 
 class ProductFormActivity : AppCompatActivity() {
@@ -33,8 +34,11 @@ class ProductFormActivity : AppCompatActivity() {
             costPrompt.setText(product?.cost.toString())
             photoPrompt.setText(product?.photoUrl)
             deleteButton.visibility = View.VISIBLE
+            productImage.visibility = View.VISIBLE
+            Picasso.with(this).load(product?.photoUrl).into(productImage)
         } else {
             deleteButton.visibility = View.GONE
+            productImage.visibility = View.GONE
         }
 
         addButton.setOnClickListener{
@@ -60,7 +64,6 @@ class ProductFormActivity : AppCompatActivity() {
                 this?.cost = costPrompt.text.toString().toFloat()
                 this?.price = pricePrompt.text.toString().toFloat()
             }
-
             productDao?.update(product!!)
         } else {
             product = Product(
@@ -71,7 +74,6 @@ class ProductFormActivity : AppCompatActivity() {
                 cost = costPrompt.text.toString().toFloat(),
                 price = pricePrompt.text.toString().toFloat()
             )
-
             productDao?.insert(product!!)
         }
 
