@@ -17,7 +17,7 @@ import com.hegargarcia.mylittleshop.entity.User
 
 @Database(
     entities = [User::class, Client::class, Product::class, Sell::class],
-    version = 3,
+    version = 5,
     exportSchema = false
 )
 @TypeConverters(DateTypeConverter::class)

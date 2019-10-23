@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.hegargarcia.mylittleshop.R
+import com.hegargarcia.mylittleshop.authentication.Auth
 import com.hegargarcia.mylittleshop.database.AppDatabase
 import com.hegargarcia.mylittleshop.entity.Client
 import kotlinx.android.synthetic.main.activity_client_list.*
@@ -47,7 +48,9 @@ class ClientListActivity : AppCompatActivity() {
     private fun showClientsOnListView() {
         clientList = AppDatabase.getDatabase(this).let {
             val clientDao = it?.client()
-            clientDao?.getAll()
+            Auth(this).getCurrentUser!!.let {user ->
+                clientDao?.getAll(user.storeName)
+            }
         }
 
         val clientsAdapter =

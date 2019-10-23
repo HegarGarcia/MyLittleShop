@@ -8,8 +8,8 @@ interface ClientDao {
     @Insert
     fun insert(client: Client)
 
-    @Query("SELECT * FROM Client WHERE id == :id")
-    fun getById(id: Int): Client
+    @Query("SELECT * FROM Client WHERE id == :id AND store_name = :storeName")
+    fun getById(id: Int, storeName: String): Client
 
     @Update
     fun update(client: Client)
@@ -17,6 +17,6 @@ interface ClientDao {
     @Delete
     fun delete(client: Client)
 
-    @Query("SELECT * FROM Client")
-    fun getAll(): List<Client>
+    @Query("SELECT * FROM Client WHERE store_name = :storeName")
+    fun getAll(storeName: String): List<Client>
 }
