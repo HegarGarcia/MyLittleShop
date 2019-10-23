@@ -13,5 +13,6 @@ data class Product(
     var amount: Int,
     var price: Float,
     var cost: Float,
+    @ColumnInfo(name = "store_name") val storeName: String,
     @ColumnInfo(name = "photo_url") var photoUrl: String
 )

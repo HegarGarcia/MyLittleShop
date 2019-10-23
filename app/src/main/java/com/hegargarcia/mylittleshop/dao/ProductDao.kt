@@ -8,8 +8,8 @@ interface ProductDao {
     @Insert
     fun insert(product: Product)
 
-    @Query("SELECT * FROM Product WHERE id == :id")
-    fun getById(id: Int): Product
+    @Query("SELECT * FROM Product WHERE id == :id AND store_name = :storeName")
+    fun getById(id: Int, storeName:String): Product
 
     @Update
     fun update(product: Product)
@@ -17,6 +17,6 @@ interface ProductDao {
     @Delete
     fun delete(product: Product)
 
-    @Query("SELECT * FROM Product")
-    fun getAll(): List<Product>
+    @Query("SELECT * FROM Product WHERE store_name = :storeName")
+    fun getAll(storeName: String): List<Product>
 }

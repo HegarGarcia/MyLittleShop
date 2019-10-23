@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.hegargarcia.mylittleshop.R
+import com.hegargarcia.mylittleshop.authentication.Auth
 import com.hegargarcia.mylittleshop.dao.ClientDao
 import com.hegargarcia.mylittleshop.dao.ProductDao
 import com.hegargarcia.mylittleshop.dao.SellDao
@@ -14,8 +15,6 @@ import com.hegargarcia.mylittleshop.entity.Product
 import com.hegargarcia.mylittleshop.entity.Sell
 import kotlinx.android.synthetic.main.activity_sell_form.*
 import java.time.LocalDateTime
-import java.time.ZoneId
-import java.util.*
 
 class SellFormActivity : AppCompatActivity() {
 
@@ -25,12 +24,15 @@ class SellFormActivity : AppCompatActivity() {
 
     private var clientList: List<Client>? = null
     private var productList: List<Product>? = null
+    private var storeName: String? = null
 
     private var sell: Sell? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sell_form)
+
+        storeName = Auth(this).getCurrentUser?.storeName
 
         AppDatabase.getDatabase(this).also {
             sellDao = it?.sell()
@@ -43,7 +45,7 @@ class SellFormActivity : AppCompatActivity() {
         val sellId = intent.getIntExtra("sell.id", -1)
 
         if (sellId != -1) {
-            sell = sellDao?.getById(sellId)
+            sell = sellDao?.getById(sellId, storeName!!)
 
             clientList?.indexOfFirst {
                 it.id!! == sell?.client?.toInt()!!
@@ -79,23 +81,34 @@ class SellFormActivity : AppCompatActivity() {
 
         val client = clientList!![clientIndex]
         val product = productList!![productIndex]
-        val amount = amountPrompt.text.toString().toInt()
-        val cost = product.cost * amount
-        val total = product.price * amount
-        val date = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant())
+        val amountVal = amountPrompt.text.toString().toInt()
+        val costVal = product.cost * amountVal
+        val totalVal = product.price * amountVal
+        val dateVal = LocalDateTime.now()
 
-        val sell = Sell(
-            client = client.id.toString(),
-            product = product.id.toString(),
-            amount = amount,
-            cost = cost,
-            date = date,
-            total = total
-        )
+        if (sell != null) {
+            product.amount -= amountVal - sell!!.amount
+            sell!!.apply {
+                amount = amountVal
+                cost = costVal
+                date = dateVal
+                total = totalVal
+            }
+            sellDao?.update(sell!!)
+        } else {
+            sell = Sell(
+                client = client.id.toString(),
+                product = product.id.toString(),
+                amount = amountVal,
+                cost = costVal,
+                date = dateVal,
+                total = totalVal,
+                storeName = storeName!!
+            )
+            sellDao?.insert(sell!!)
+            product.amount -= amountVal
+        }
 
-        product.amount -= amount
-
-        sellDao?.insert(sell)
         productDao?.update(product)
         finish()
     }
@@ -106,7 +119,7 @@ class SellFormActivity : AppCompatActivity() {
     }
 
     private fun showClients() {
-        clientList = clientDao?.getAll()
+        clientList = clientDao?.getAll(storeName!!)
 
         clientSpinner.adapter = ArrayAdapter(this,
             android.R.layout.simple_spinner_item,
@@ -118,7 +131,7 @@ class SellFormActivity : AppCompatActivity() {
     }
 
     private fun showProducts() {
-        productList = productDao?.getAll()
+        productList = productDao?.getAll(storeName!!)
 
         productSpinner.adapter = ArrayAdapter(
             this,
