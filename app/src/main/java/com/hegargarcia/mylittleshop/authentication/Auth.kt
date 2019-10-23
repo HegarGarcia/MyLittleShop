@@ -30,10 +30,10 @@ class Auth(context: Context) {
     val getCurrentUser: User?
         get() = userDao?.getById(getCurrentUserId)
 
-    fun logIn(username: String, password: String, remember: Boolean): User? {
-        val user = userDao?.login(username, password)
+    fun logIn(username: String, password: String, storeName: String, remember: Boolean): User? {
+        val user = userDao?.login(username, password, storeName)
 
-        if (user!= null && remember) {
+        if (user != null && remember) {
             preferences?.edit()?.apply {
                 putInt("user.id", user.id!!)
                 apply()

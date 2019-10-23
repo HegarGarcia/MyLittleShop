@@ -1,5 +1,6 @@
 package com.hegargarcia.mylittleshop.entity
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
@@ -10,5 +11,6 @@ data class Client(
     var name: String,
     var address: String,
     var phone: String,
-    var email: String
-)
+    var email: String,
+    @ColumnInfo(name = "store_name") val storeName: String
+    )

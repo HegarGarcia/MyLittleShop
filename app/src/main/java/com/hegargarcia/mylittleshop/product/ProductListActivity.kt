@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.hegargarcia.mylittleshop.R
+import com.hegargarcia.mylittleshop.authentication.Auth
 import com.hegargarcia.mylittleshop.database.AppDatabase
 import com.hegargarcia.mylittleshop.entity.Product
 import kotlinx.android.synthetic.main.activity_product_list.*
@@ -16,6 +17,7 @@ class ProductListActivity : AppCompatActivity() {
     }
 
     private var productList: List<Product>? = null
+    private var storeName: String? = null
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -25,7 +27,10 @@ class ProductListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_list)
+        storeName = Auth(this).getCurrentUser?.storeName
         showProductOnListView()
+
+
 
         toolbar_product_list.setNavigationOnClickListener {
             finish()
@@ -46,7 +51,7 @@ class ProductListActivity : AppCompatActivity() {
     private fun showProductOnListView() {
         productList = AppDatabase.getDatabase(this).let {
             val productDao = it?.product()
-            productDao?.getAll()
+            productDao?.getAll(storeName!!)
         }
 
         val productsAdapter =

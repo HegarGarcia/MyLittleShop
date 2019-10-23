@@ -1,7 +1,7 @@
 package com.hegargarcia.mylittleshop.entity
 
 import androidx.room.*
-import java.util.*
+import java.time.LocalDateTime
 
 @Entity(
     indices = [Index("client"), Index("product")],
@@ -22,5 +22,6 @@ data class Sell(
     var amount: Int,
     var total: Float,
     var cost: Float,
-    var date: Date
-)
+    var date: LocalDateTime?,
+    @ColumnInfo(name = "store_name") val storeName: String
+    )

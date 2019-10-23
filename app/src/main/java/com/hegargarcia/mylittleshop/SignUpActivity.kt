@@ -21,10 +21,10 @@ class SignUpActivity : AppCompatActivity() {
         userDao = AppDatabase.getDatabase(this)?.user()
         auth = Auth(this)
 
-        userDao?.getById(1)!!.run {
-            storeNamePrompt.setText(storeName)
-            storeNamePrompt.isEnabled = false
-        }
+//        userDao?.getById(1)?.run {
+//            storeNamePrompt.setText(storeName)
+//            storeNamePrompt.isEnabled = false
+//        }
 
         signUpButton.setOnClickListener {
             addUser()
