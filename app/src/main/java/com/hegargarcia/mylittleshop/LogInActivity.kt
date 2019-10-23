@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.hegargarcia.mylittleshop.authentication.Auth
 import com.hegargarcia.mylittleshop.database.AppDatabase
 import kotlinx.android.synthetic.main.activity_log_in.*
-import kotlinx.android.synthetic.main.activity_sell_form.*
 
 class LogInActivity : AppCompatActivity() {
 
@@ -45,7 +44,7 @@ class LogInActivity : AppCompatActivity() {
                 }
             }
 
-        clientSpinner.adapter = adapter
+        storeNameSpinner.adapter = adapter
 
         logInButton.setOnClickListener {
             logIn()
